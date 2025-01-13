@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Hlavička -->
+    <div id="header">
+        <!-- Dynamicky sa načíta obsah zo súboru header.html -->
+    </div>
+
+    <!-- Obsah stránky -->
+    <div class="container">
+        <h1>Kontaktujte nás</h1>
+        <p>Ak máte akékoľvek otázky, neváhajte nás kontaktovať pomocou tohto formulára.</p>
+
+        <form id="contact-form" class="mt-4">
+            <div class="mb-3">
+                <label for="name" class="form-label">Meno</label>
+                <input type="text" class="form-control" id="name" placeholder="Vaše meno" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Váš email" required>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Správa</label>
+                <textarea class="form-control" id="message" rows="5" placeholder="Vaša správa" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Odoslať</button>
+        </form>
+    </div>
+
+    <!-- Pätička -->
+    <div id="footer">
+        <!-- Dynamicky sa načíta obsah zo súboru footer.html -->
+    </div>
+
+    <script>
+        // Načítanie header.html
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header').innerHTML = data);
+
+        // Načítanie footer.html
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer').innerHTML = data);
+
+        // Spracovanie odoslania formulára
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Zamedzenie reloadu stránky
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            console.log('Formulár odoslaný:');
+            console.log(`Meno: ${name}`);
+            console.log(`Email: ${email}`);
+            console.log(`Správa: ${message}`);
+
+            alert('Vaša správa bola úspešne odoslaná. Ďakujeme za kontaktovanie!');
+            document.getElementById('contact-form').reset(); // Resetovanie formulára
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

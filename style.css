@@ -1,0 +1,108 @@
+/* Globálne nastavenia */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Minimálna výška pre celú obrazovku */
+  background-color: #ffffff; /* Biele pozadie */
+}
+
+/* Navbar */
+.navbar {
+  background-color: rebeccapurple; /* Tmavomodrý header */
+  padding: 0.8rem 1rem;
+  border-bottom: 3px solid #0055a5; /* Dvojfarebný efekt */
+}
+
+.navbar-brand img {
+  height: 50px; /* Nastavenie veľkosti loga */
+}
+
+.nav-link {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin: 0 5px; /* Rozostupy medzi tlačidlami */
+  border-radius: 5px; /* Jemne zaoblené rohy */
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: #0055a5; /* Svetlejšia modrá pri prechode myšou */
+  color: white;
+}
+
+/* Obsah */
+.container {
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 900px; /* Obmedzenie šírky textového bloku */
+  padding: 0 20px;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #003366; /* Tmavomodrá */
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.2rem;
+  color: #333; /* Tmavosivá */
+}
+
+img {
+  border-radius: 5px; /* Jemné zaoblenie rohov */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Jemný tieň */
+}
+
+
+/* Footer */
+footer {
+  background-color: rebeccapurple; /* Tmavomodrý footer */
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  margin-top: auto; /* Zabezpečí footer na spodku stránky */
+}
+
+footer a {
+  color: #cce7ff; /* Svetlomodrá */
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+footer a:hover {
+  color: white; /* Biela pri prechode myšou */
+}
+
+/* Responzivita */
+@media (max-width: 768px) {
+  .navbar-brand img {
+      height: 40px; /* Zmenšenie loga na menších obrazovkách */
+  }
+
+  .nav-link {
+      padding: 8px 15px; /* Menšie tlačidlá */
+      font-size: 1rem;
+  }
+
+  h1 {
+      font-size: 1.8rem;
+  }
+
+  p {
+      font-size: 1rem;
+  }
+}

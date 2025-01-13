@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kariéra</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Hlavička -->
+    <div id="header">
+        <!-- Dynamicky sa načíta obsah zo súboru header.html -->
+    </div>
+
+    <!-- Obsah stránky -->
+    <div class="container">
+        <h1>Kariéra</h1>
+        <p>Prezrite si aktuálne pracovné ponuky v našej spoločnosti a pošlite nám svoju žiadosť o zamestnanie.</p>
+
+        <!-- Kategórie pracovných ponúk -->
+        <div class="accordion mt-4" id="jobCategories">
+            <!-- Lekár -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingDoctor">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDoctor" aria-expanded="true" aria-controls="collapseDoctor">
+                        Lekár
+                    </button>
+                </h2>
+                <div id="collapseDoctor" class="accordion-collapse collapse show" aria-labelledby="headingDoctor" data-bs-parent="#jobCategories">
+                    <div class="accordion-body">
+                        <ul>
+                            <li>Patológ - Bratislava</li>
+                            <li>Onkológ - Košice</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Laborant -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTechnician">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTechnician" aria-expanded="false" aria-controls="collapseTechnician">
+                        Laborant
+                    </button>
+                </h2>
+                <div id="collapseTechnician" class="accordion-collapse collapse" aria-labelledby="headingTechnician" data-bs-parent="#jobCategories">
+                    <div class="accordion-body">
+                        <ul>
+                            <li>Laborant - Bratislava</li>
+                            <li>Laborant - Žilina</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Iný zdravotnícky pracovník -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOther">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOther" aria-expanded="false" aria-controls="collapseOther">
+                        Iný zdravotnícky pracovník
+                    </button>
+                </h2>
+                <div id="collapseOther" class="accordion-collapse collapse" aria-labelledby="headingOther" data-bs-parent="#jobCategories">
+                    <div class="accordion-body">
+                        <ul>
+                            <li>Administratívny pracovník - Bratislava</li>
+                            <li>IT špecialista - Košice</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formulár na odoslanie žiadosti -->
+        <h2 class="mt-5">Pošlite nám svoju žiadosť</h2>
+        <form id="jobApplicationForm" class="mt-3">
+            <div class="mb-3">
+                <label for="applicantName" class="form-label">Meno a priezvisko</label>
+                <input type="text" class="form-control" id="applicantName" placeholder="Vaše meno a priezvisko" required>
+            </div>
+            <div class="mb-3">
+                <label for="applicantEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="applicantEmail" placeholder="Váš email" required>
+            </div>
+            <div class="mb-3">
+                <label for="jobCategory" class="form-label">Kategória pozície</label>
+                <select class="form-select" id="jobCategory" required>
+                    <option value="" disabled selected>Vyberte kategóriu</option>
+                    <option value="Lekár">Lekár</option>
+                    <option value="Laborant">Laborant</option>
+                    <option value="Iný zdravotnícky pracovník">Iný zdravotnícky pracovník</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Správa</label>
+                <textarea class="form-control" id="message" rows="5" placeholder="Vaša správa (voliteľné)"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Odoslať</button>
+        </form>
+    </div>
+
+    <!-- Pätička -->
+    <div id="footer">
+        <!-- Dynamicky sa načíta obsah zo súboru footer.html -->
+    </div>
+
+    <script>
+        // Načítanie header.html
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header').innerHTML = data);
+
+        // Načítanie footer.html
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer').innerHTML = data);
+
+        // Spracovanie formulára
+        document.getElementById('jobApplicationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Zamedzenie reloadu stránky
+
+            const name = document.getElementById('applicantName').value;
+            const email = document.getElementById('applicantEmail').value;
+            const category = document.getElementById('jobCategory').value;
+            const message = document.getElementById('message').value;
+
+            console.log('Formulár odoslaný:');
+            console.log(`Meno: ${name}`);
+            console.log(`Email: ${email}`);
+            console.log(`Kategória: ${category}`);
+            console.log(`Správa: ${message}`);
+
+            alert('Vaša žiadosť bola úspešne odoslaná. Ďakujeme za záujem!');
+            document.getElementById('jobApplicationForm').reset(); // Resetovanie formulára
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
