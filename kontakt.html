@@ -3,72 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontakt</title>
+    <title>Kontakt - Slovenská spoločnosť patológov</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Hlavička -->
+    <!-- Header -->
     <div id="header">
-        <!-- Dynamicky sa načíta obsah zo súboru header.html -->
+        <!-- Dynamically loaded from header.html -->
     </div>
 
-    <!-- Obsah stránky -->
-    <div class="container">
-        <h1>Kontaktujte nás</h1>
-        <p>Ak máte akékoľvek otázky, neváhajte nás kontaktovať pomocou tohto formulára.</p>
+    <!-- Main content -->
+    <main class="container py-5">
+        <!-- Breadcrumbs -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Domov</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Kontakt</li>
+            </ol>
+        </nav>
 
-        <form id="contact-form" class="mt-4">
-            <div class="mb-3">
-                <label for="name" class="form-label">Meno</label>
-                <input type="text" class="form-control" id="name" placeholder="Vaše meno" required>
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="Váš email" required>
-            </div>
-            <div class="mb-3">
-                <label for="message" class="form-label">Správa</label>
-                <textarea class="form-control" id="message" rows="5" placeholder="Vaša správa" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Odoslať</button>
-        </form>
-    </div>
+        <!-- Contact section -->
+        <div class="row fade-in">
+            <div class="col-lg-8 mx-auto">
+                <h1 class="display-4 mb-4 text-center">Kontaktujte nás</h1>
+                <p class="lead text-center mb-5">Ak máte akékoľvek otázky, neváhajte nás kontaktovať pomocou tohto formulára.</p>
 
-    <!-- Pätička -->
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <form id="contact-form">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Meno</label>
+                                <input type="text" class="form-control" id="name" placeholder="Vaše meno" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="Váš email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Predmet</label>
+                                <input type="text" class="form-control" id="subject" placeholder="Predmet správy" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="form-label">Správa</label>
+                                <textarea class="form-control" id="message" rows="5" placeholder="Vaša správa" required></textarea>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="bi bi-send me-2"></i>Odoslať správu
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Contact information -->
+                <div class="row mt-5">
+                    <div class="col-md-4 text-center mb-4">
+                        <div class="contact-info">
+                            <i class="bi bi-geo-alt text-primary mb-3" style="font-size: 2rem;"></i>
+                            <h5>Adresa</h5>
+                            <p>Slovenská spoločnosť patológov<br>
+                            Klinika patológie<br>
+                            Bratislava, Slovensko</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center mb-4">
+                        <div class="contact-info">
+                            <i class="bi bi-envelope text-primary mb-3" style="font-size: 2rem;"></i>
+                            <h5>Email</h5>
+                            <p>info@patologia.sk<br>
+                            sekretariat@patologia.sk</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center mb-4">
+                        <div class="contact-info">
+                            <i class="bi bi-telephone text-primary mb-3" style="font-size: 2rem;"></i>
+                            <h5>Telefón</h5>
+                            <p>+421 2 1234 5678<br>
+                            +421 2 8765 4321</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Back to top button -->
+    <button class="back-to-top" aria-label="Späť na začiatok">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Footer -->
     <div id="footer">
-        <!-- Dynamicky sa načíta obsah zo súboru footer.html -->
+        <!-- Dynamically loaded from footer.html -->
     </div>
 
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Načítanie header.html
+        // Load header and footer
         fetch('header.html')
             .then(response => response.text())
-            .then(data => document.getElementById('header').innerHTML = data);
+            .then(data => document.getElementById('header').innerHTML = data)
+            .catch(error => console.error('Error loading header:', error));
 
-        // Načítanie footer.html
         fetch('footer.html')
             .then(response => response.text())
-            .then(data => document.getElementById('footer').innerHTML = data);
+            .then(data => document.getElementById('footer').innerHTML = data)
+            .catch(error => console.error('Error loading footer:', error));
 
-        // Spracovanie odoslania formulára
+        // Form submission
         document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Zamedzenie reloadu stránky
+            event.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
 
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-
-            console.log('Formulár odoslaný:');
-            console.log(`Meno: ${name}`);
-            console.log(`Email: ${email}`);
-            console.log(`Správa: ${message}`);
-
+            // Here you would typically send the form data to a server
+            console.log('Form submitted:', formData);
+            
+            // Show success message
             alert('Vaša správa bola úspešne odoslaná. Ďakujeme za kontaktovanie!');
-            document.getElementById('contact-form').reset(); // Resetovanie formulára
+            this.reset();
+        });
+
+        // Back to top button
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Add active class to current page in navigation
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPage = window.location.pathname.split('/').pop();
+            document.querySelectorAll('.nav-link').forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
         });
     </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

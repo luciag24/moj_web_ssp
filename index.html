@@ -3,42 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Domov</title>
+    <title>Domov - Slovenská spoločnosť patológov</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Hlavička -->
+    <!-- Header -->
     <div id="header">
-        <!-- Dynamicky sa načíta obsah zo súboru header.html -->
+        <!-- Dynamically loaded from header.html -->
     </div>
 
-    <!-- Obsah stránky -->
-    <div class="container mt-5">
-        <h1>Vitajte na stránke Slovenskej spoločnosti patológov</h1>
-        <p class="lead">Naším poslaním je podporovať vedecký pokrok a klinickú prax v oblasti histológie. Venujeme sa vzdelávaniu, výskumu a zlepšovaniu diagnostických metód, aby sme pomohli zlepšiť zdravotnú starostlivosť na Slovensku.</p>
+    <!-- Main content -->
+    <main class="container py-5">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-4 mb-4">Vitajte na stránke Slovenskej spoločnosti patológov</h1>
+                <p class="lead mb-5">Naším poslaním je podporovať vedecký pokrok a klinickú prax v oblasti histológie. Venujeme sa vzdelávaniu, výskumu a zlepšovaniu diagnostických metód, aby sme pomohli zlepšiť zdravotnú starostlivosť na Slovensku.</p>
+            </div>
+        </div>
 
-        <!-- Obrázok -->
-        <img src="histologia_lab.jpg" alt="Histologické laboratórium" class="img-fluid mt-3" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
-    </div>
+        <div class="row mt-5">
+            <div class="col-md-6 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="histologia_lab.jpg" alt="Histologické laboratórium" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Naše laboratórium</h5>
+                        <p class="card-text">Moderné vybavenie a špičkové technológie pre presnú diagnostiku.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Aktuálne podujatia</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-3">
+                                <i class="bi bi-calendar-event text-primary me-2"></i>
+                                Konferencia o moderných diagnostických metódach
+                            </li>
+                            <li class="mb-3">
+                                <i class="bi bi-calendar-event text-primary me-2"></i>
+                                Workshop pre mladých patológov
+                            </li>
+                            <li>
+                                <i class="bi bi-calendar-event text-primary me-2"></i>
+                                Vedecké sympózium
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
-    <!-- Pätička -->
+    <!-- Footer -->
     <div id="footer">
-        <!-- Dynamicky sa načíta obsah zo súboru footer.html -->
+        <!-- Dynamically loaded from footer.html -->
     </div>
 
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Načítanie header.html
+        // Load header.html
         fetch('header.html')
             .then(response => response.text())
-            .then(data => document.getElementById('header').innerHTML = data);
+            .then(data => document.getElementById('header').innerHTML = data)
+            .catch(error => console.error('Error loading header:', error));
 
-        // Načítanie footer.html
+        // Load footer.html
         fetch('footer.html')
             .then(response => response.text())
-            .then(data => document.getElementById('footer').innerHTML = data);
+            .then(data => document.getElementById('footer').innerHTML = data)
+            .catch(error => console.error('Error loading footer:', error));
     </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
